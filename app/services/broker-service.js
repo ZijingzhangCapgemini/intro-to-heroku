@@ -10,11 +10,11 @@ let prettifyBroker = (broker) => {
     return {
         id: broker.sfid,
         name: broker.name,
-        title: broker.title,
+        PersonTitle: broker.PersonTitle,
         picture: broker.picture__c,
         phone: broker.phone,
-        mobilePhone: broker.PersonMobilePhone,
-        email: broker.PersonEmail
+        PersonMobilePhone: broker.PersonMobilePhone,
+        PersonEmail: broker.PersonEmail
     };
 };
 
