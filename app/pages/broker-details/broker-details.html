@@ -15,25 +15,20 @@
             </ion-card-content>
 
             <ion-list>
-                <a href="tel:{{broker.Phone__c}}" ion-item>
+                <a href="tel:{{broker.phone}}" ion-item>
                     <ion-icon name="call" item-left></ion-icon>
                     <p>Call Office</p>
                     <h2>{{broker.phone}}</h2>
                 </a>
-                <a href="tel:{{broker.phone}}" ion-item>
+                <a href="tel:{{broker.PersonMobilePhone}}" ion-item>
                     <ion-icon name="call" item-left></ion-icon>
                     <p>Call Mobile</p>
-                    <h2>{{broker.mobilePhone}}</h2>
+                    <h2>{{broker.PersonMobilePhone}}</h2>
                 </a>
-                <a href="tel:{{broker.phone}}" ion-item>
-                    <ion-icon name="text" item-left></ion-icon>
-                    <p>Text</p>
-                    <h2>{{broker.mobilePhone}}</h2>
-                </a>
-                <a href="mailto:{{broker.email}}" ion-item>
+                <a href="mailto:{{broker.PersonEmail}}" ion-item>
                     <ion-icon name="mail" item-left></ion-icon>
                     <p>Email</p>
-                    <h2>{{broker.email}}</h2>
+                    <h2>{{broker.PersonEmail}}</h2>
                 </a>
             </ion-list>
 

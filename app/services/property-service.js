@@ -23,10 +23,10 @@ let prettifyProperty = (property) => {
     };
     prettyProperty.broker = property.broker__c_sfid ?
         {
-            id: property.broker__c_sfid,
-            name: property.broker__c_name,
-            title: property.broker__c_title__c,
-            picture: property.broker__c_picture__c
+            id: property.account_sfid,
+            name: property.account_name,
+            title: property.account_title__c,
+            picture: property.account_picture__c
         } : {};
     return prettyProperty;
 };

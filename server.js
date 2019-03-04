@@ -22,12 +22,12 @@ client.connect();
 
 var propertyTable = 'property__c';
 var favoriteTable = 'favorite__c';
-var brokerTable = 'broker__c';
+var brokerTable = 'account';
 
 // setup the demo data if needed
-client.query('SELECT * FROM salesforce.broker__c', function(error, data) {
+client.query('SELECT * FROM salesforce.account', function(error, data) {
   if (error !== null) {
-    client.query('SELECT * FROM broker__c', function(error, data) {
+    client.query('SELECT * FROM account', function(error, data) {
       if (error !== null) {
         console.log('Loading Demo Data...');
         require('./db/demo.js')(client);
@@ -39,7 +39,7 @@ client.query('SELECT * FROM salesforce.broker__c', function(error, data) {
     var schema = 'salesforce.';
     propertyTable = schema + 'property__c';
     favoriteTable = schema + 'favorite__c';
-    brokerTable = schema + 'broker__c';
+    brokerTable = schema + 'account';
   }
 });
 
@@ -51,7 +51,7 @@ app.get('/property', function(req, res) {
 });
 
 app.get('/property/:id', function(req, res) {
-  client.query('SELECT ' + propertyTable + '.*, ' + brokerTable + '.sfid AS broker__c_sfid, ' + brokerTable + '.name AS broker__c_name, ' + brokerTable + '.email__c AS broker__c_email__c, ' + brokerTable + '.phone__c AS broker__c_phone__c, ' + brokerTable + '.mobile_phone__c AS broker__c_mobile_phone__c, ' + brokerTable + '.title__c AS broker__c_title__c, ' + brokerTable + '.picture__c AS broker__c_picture__c FROM ' + propertyTable + ' INNER JOIN ' + brokerTable + ' ON ' + propertyTable + '.broker__c = ' + brokerTable + '.sfid WHERE ' + propertyTable + '.sfid = $1', [req.params.id], function(error, data) {
+  client.query('SELECT ' + propertyTable + '.*, ' + brokerTable + '.sfid AS account_sfid, ' + brokerTable + '.name AS account_name, ' + brokerTable + '.email__c AS account_email__c, ' + brokerTable + '.phone__c AS account_phone__c, ' + brokerTable + '.mobile_phone__c AS account_mobile_phone__c, ' + brokerTable + '.title__c AS account_title__c, ' + brokerTable + '.picture__c AS account_picture__c FROM ' + propertyTable + ' INNER JOIN ' + brokerTable + ' ON ' + propertyTable + '.account = ' + brokerTable + '.sfid WHERE ' + propertyTable + '.sfid = $1', [req.params.id], function(error, data) {
     res.json(data.rows[0]);
   });
 });
