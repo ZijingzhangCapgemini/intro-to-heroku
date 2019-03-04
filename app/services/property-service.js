@@ -25,7 +25,7 @@ let prettifyProperty = (property) => {
         {
             id: property.account_sfid,
             name: property.account_name,
-            PersonTitle: property.account_PersonTitle,
+            persontitle: property.account_persontitle,
             picture: property.account_picture__c
         } : {};
     return prettyProperty;

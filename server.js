@@ -51,7 +51,7 @@ app.get('/property', function(req, res) {
 });
 
 app.get('/property/:id', function(req, res) {
-  client.query('SELECT ' + propertyTable + '.*, ' + brokerTable + '.sfid AS account_sfid, ' + brokerTable + '.name AS account_name, ' + brokerTable + '.PersonEmail AS account_PersonEmail, ' + brokerTable + '.phone AS account_phone, ' + brokerTable + '.PersonMobilePhone AS account_PersonMobilePhone, ' + brokerTable + '.PersonTitle AS account_PersonTitle, ' + brokerTable + '.picture__c AS account_picture__c FROM ' + propertyTable + ' INNER JOIN ' + brokerTable + ' ON ' + propertyTable + '.account = ' + brokerTable + '.sfid WHERE ' + propertyTable + '.sfid = $1', [req.params.id], function(error, data) {
+  client.query('SELECT ' + propertyTable + '.*, ' + brokerTable + '.sfid AS account_sfid, ' + brokerTable + '.name AS account_name, ' + brokerTable + '.personemail AS account_personemail, ' + brokerTable + '.phone AS account_phone, ' + brokerTable + '.personmobilephone AS account_personmobilephone, ' + brokerTable + '.persontitle AS account_persontitle, ' + brokerTable + '.picture__c AS account_picture__c FROM ' + propertyTable + ' INNER JOIN ' + brokerTable + ' ON ' + propertyTable + '.account = ' + brokerTable + '.sfid WHERE ' + propertyTable + '.sfid = $1', [req.params.id], function(error, data) {
     res.json(data.rows[0]);
   });
 });
